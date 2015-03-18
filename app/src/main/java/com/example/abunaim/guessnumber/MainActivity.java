@@ -58,30 +58,30 @@ public class MainActivity extends ActionBarActivity {
         EditText enterednum = (EditText) findViewById(R.id.editText);
 
             // get the user value as string (covert numeric value to string)
-            int guessnum = Integer.parseInt(enterednum.getText().toString());
+            int usernum = Integer.parseInt(enterednum.getText().toString());
             //generate random number from 0-1000 by Random class
-            Random randomnum = new Random();
-            int num = randomnum.nextInt(1000);
+            Random num = new Random();
+            int randomnum = num.nextInt(1000);
 
 //create a value with textview type
-            TextView shrslt = (TextView) findViewById(R.id.textView2);
+            TextView msgrslt = (TextView) findViewById(R.id.textView2);
             //make a result massage
 
-            if ((guessnum - num) == 0) {
-                shrslt.setText("Wow,its a correct guess ");
+            if ((usernum - randomnum) == 0) {
+                msgrslt.setText("Wow,its a correct guess ");
             }
-            if (Math.abs(guessnum - num) <= (5) && Math.abs(guessnum - num) > 0) {
-               shrslt.setText("");
+            if (Math.abs(usernum - randomnum) <= (5) && Math.abs(usernum - randomnum) > 0) {
+               msgrslt.setText("");
                 toast.show();
             }
-            if (guessnum > num & Math.abs(guessnum - num) > 5) {
+            if (usernum > randomnum & Math.abs(usernum - randomnum) > 5) {
 
-                shrslt.setText("your guess is greater,Try again");
+                msgrslt.setText("your guess is greater,Try again");
 
             }
-            if (guessnum < num && Math.abs(guessnum - num) >= 6) {
+            if (usernum < randomnum && Math.abs(usernum - randomnum) >= 6) {
 
-                shrslt.setText("Your guess is smaller, Try again");
+                msgrslt.setText("Your guess is smaller, Try again");
 
 
             }
